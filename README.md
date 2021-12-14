@@ -8,19 +8,22 @@
 
 ```yaml
 -   repo: https://github.com/r0x0d/pre-commit-rust
-    rev: master
+    rev: v1.0.0
     hooks:
     -   id: fmt
     -   id: check
     -   id: clippy
+    -   id: test
 ```
 
-## Passing arguments to rustfmt
+## Passing arguments to commands
 
 ```yaml
 -   repo: https://github.com/r0x0d/pre-commit-rust
-    rev: master
+    rev: v1.0.0
     hooks:
     -   id: fmt
-        args: ['--verbose', '--edition', '2018', '--']
+        args: ['--', '--verbose', '--edition', '2018']
+    -   id: clippy
+        args: ['--','-D', 'warnings']
 ```

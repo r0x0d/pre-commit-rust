@@ -1,5 +1,5 @@
 - id: fmt
-  name: cargo fmt
+  name: Check for formatting with cargo fmt
   description: Format files with cargo fmt.
   entry: cargo fmt
   language: rust
@@ -7,7 +7,7 @@
   files: \.rs$
   args: ["--"]
 - id: check
-  name: cargo check
+  name: Check for package errors with cargo check
   description: Check the package for errors.
   entry: cargo check
   language: rust
@@ -15,9 +15,18 @@
   files: \.rs$
   pass_filenames: false
 - id: clippy
-  name: cargo clippy
+  name: Check for linting issues with cargo clippy
   description: Check for linting issues with cargo.
   entry: cargo clippy
+  language: rust
+  args: ["--"]
+  types: [rust]
+  files: \.rs$
+  pass_filenames: false
+- id: test
+  name: Run test suite with cargo test
+  description: Run test suite with cargo.
+  entry: cargo test
   language: rust
   args: ["--"]
   types: [rust]
